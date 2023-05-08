@@ -14,6 +14,3 @@ Route::get('/search', [ContactController::class, 'search']);
 Route::post('/complete', [ContactController::class, 'complete']);
 Route::post('/edit', [ContactController::class, 'edit'])->name('edit');
 Route::post('/thank', [ContactController::class, 'thank'])->name('thank');
-
-
-// Route::post('/add', [ContactController::class, 'add']);

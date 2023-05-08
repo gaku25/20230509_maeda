@@ -44,7 +44,7 @@
             </tr>
             </table>
             <p class="content_btn">
-                <input type="submit" class="content_btn-search" name="keyword" value="検索">
+                <input type="submit" class="content_btn-search" name="keyword"  id="datepicker" value="検索">
             </p>
         </form>
         <form action="/search" method="get" class="content">    
@@ -99,3 +99,12 @@
         </table>
     </div>
 @endsection
+
+<script>
+    $(document).ready(function() {
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+        });
+    });
+</script>

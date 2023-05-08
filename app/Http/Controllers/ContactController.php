@@ -14,13 +14,13 @@ class ContactController extends Controller
 {
     public function index()
     {
-    $contacts = contact::all();
+    $contacts = Contact::all();
     return view('index');
     }
 
     public function thank()
     {
-    $contacts = contact::all();
+    $contacts = Contact::all();
     return view('thank');
     }
 
@@ -46,12 +46,8 @@ class ContactController extends Controller
         'address.max' => '・住所は255文字以内入力してください',
         'building_name.max' => '・建物名は255文字以内で入力してください',
         'opinion.required'=>'・ご意見は必須です',
-        'opinion.max'=>'・ご意見は120文字以内で入力してください',
     ]);
-        // 郵便番号を取得
     $postcode = $request->input('postcode');
-
-        // 郵便番号が入力されている場合
     if ($postcode) {
         $client = new Client();
         $response = $client->request('GET', 'https://zipcloud.ibsnet.co.jp/api/search', [
@@ -64,8 +60,6 @@ class ContactController extends Controller
     } else {
         $address = $request->input('address');
     }
-
-        // 送信するデータを格納
     $data = [
         'fullname' => $request->input('fullname'),
         'gender' => $request->input('gender'),
@@ -75,8 +69,6 @@ class ContactController extends Controller
         'building_name' => $request->input('building_name'),
         'opinion' => $request->input('opinion'),
         ];
-
-        // 確認画面を表示
     return view('add', ['data' => $data]);
     }
 
@@ -111,6 +103,9 @@ class ContactController extends Controller
                 return $query->where('email', 'like', "%$email%");
             })
             ->paginate(10);
+
+            $date = $request->input('date');
+    $results = Contact::whereDate('created_at', '=', $date)->get();
 
         return view('search', compact('contacts'));
     }

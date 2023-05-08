@@ -42,9 +42,9 @@
             <tr>
                 <th class="content_fiex">性別<span class="style">※</span></th>
                     <td class="content_fiex-sub">
-                        <input type="radio" class="content_sex-sub" name="gender" checked="checked" value="{{ old('fullname', isset($input) ? $input['gender'] : '') }}"  >
+                        <input type="radio" class="content_sex-sub" name="gender" checked="checked" value=""  >
                         <em class=content_sex>男性</em>
-                        <input type="radio" class="content_sex-sub" name="gender" value="{{ old('fullname', isset($input) ? $input['gender'] : '') }}">
+                        <input type="radio" class="content_sex-sub" name="gender" value="">
                         <em class=content_sex>女性</em>
                     </td>
             </tr>
@@ -57,7 +57,7 @@
             <tr>
                 <th class="content_fiex">メールアドレス<span class="style">※</span></th>
                     <td class="content_fiex-sub">
-                        <input type="email" class="content_email-sub" name="email" value="{{ old('fullname', isset($input) ? $input['email'] : '') }}">
+                        <input type="email" class="content_email-sub" name="email" value="">
                         <div class="content_example">例)test@exmple.com</div>
                     </td>
             </tr>

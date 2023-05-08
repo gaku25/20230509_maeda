@@ -18,13 +18,4 @@ class Contact extends Model
         'building_name',
         'opinion',
     ];
-
-    // public function doSearch($keyword,$created_at,$emaill)
-    // {
-    //     $query = contact::where('fullname','like','%'.keyword.'%');
-    //     if(!empty($id)){
-    //         $query->where('id',$id);
-    //     }
-    // return $query->get();
-    // }
 }
